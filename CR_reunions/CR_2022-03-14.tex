@@ -1,0 +1,112 @@
+%
+%   Copyright © 2022 Maël Alet
+%
+%   Cette œuvre est mise à disposition sous licence CC BY-SA 4.0. Pour voir une copie de 
+%   cette licence, visitez http://creativecommons.org/licenses/by-sa/4.0/ ou écrivez à
+%   Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+%
+\documentclass{article}
+
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Les deux déclarations suivantes sont nécessaires pour que le format des citations correspondent au format
+% Français "standard". Elles ne sont pas strictement nécessaires mais autant faire les choses bien.
+\AddThinSpaceBeforeFootnotes
+\FrenchFootnotes
+
+
+\usepackage{multirow}
+\usepackage{crreunion}
+\usepackage{cpylicence}
+
+
+\numero{8}
+\date{14 mars 2022}
+\heure{16:00}
+\lieu{Discord}
+\objet{Avancement des actions décidées à l'avant dernière réunion}
+
+
+\begin{document}
+
+\begin{crtitlepage}
+
+\makecrtitle
+
+\begin{redacteurs}
+        \multirow{2}{*}{Maël \bsc{Alet}} & \multirow{2}{*}{14/03/2022} & \multirow{2}{*}{Julien \bsc{Alonzo}} & \multirow{2}{*}{14/03/2022} \\
+\end{redacteurs}
+
+
+\makecrinfo
+
+
+\begin{participants}
+    Maël \bsc{Alet} & \multirow{3}{*}{Développeur} \\
+    Julien \bsc{Alonzo} & \\
+    Tariq \bsc{Dahbi} & \\ \hline
+    Cédric \bsc{Tarbouriech} & Client
+\end{participants}
+
+
+\begin{license}
+    \copyrightnotice{2022}{Maël}{Alet}
+\end{license}
+    
+\end{crtitlepage}
+
+\newpage
+
+\ordredujour
+
+\newpage
+
+\section{Avancement}
+
+L'équipe de développement signale que le travail de cette semaine a surtout porté sur les tâches \og administratives \fg. Les CRs ont été (re-)publiés sous licence CC BY-SA 4.0 et le CR documentant l'abandon de la méthode \og Asteroid \fg\ est en cours d'écriture.
+
+\subsection{États des actions}
+
+\begin{actionlist}
+    \action{Écrire CR abandon Asteroid}{Julien \bsc{Alonzo}}{14/02/2022}{\actionEncours}
+    
+    \action{Contacter \Monsieur{Pelligrini}}
+                        {Julien \bsc{Alonzo}}{14/02/2022}{Attente d'une réponse}
+                        
+    \action{Créer un dépot Git}{Maël \bsc{Alet}}{14/02/2022}{\actionEncours}
+    
+    \action{Publier sous licence libre}{Maël \bsc{Alet}}{14/02/2022}{\actionTerminee}
+\end{actionlist}
+
+
+\section{Droits d'auteur}
+
+Cédric demande si les lignes \og Copyright \fg\ ne représenteraient pas une deuxième licence en plus de la licence CC BY-SA 4.0 et s'il ne faudrait donc pas la supprimer. Il propose de se charger de vérifier la bonne façon d'appliquer la licence CC BY-SA 4.0.
+
+\subsection{Actions}
+
+\begin{actionlist}
+    \action{Vérifier la licence CC}{Cédric \bsc{Tarbouriech}}{21/03/2022}{\actionNouvelle}
+\end{actionlist}
+
+
+\section{Contact de \Monsieur{Pelligrini}}
+
+L'équipe de développement signale qu'après un mail envoyé le 8 mars et un nouveau mail envoyé aujourd'hui en début d'après-midi, \Monsieur{Pelligrini} n'a pas répondu.
+
+Cédric suggère de renvoyer un mail dans 2 jours (soit mercredi) et le mettre en copie si \Monsieur{Pelligrini} n'a toujours pas répondu d'ici là.
+
+\subsection{Actions}
+
+\begin{actionlist}
+    \action{Relancer \Monsieur{Pelligrini}}{Julien \bsc{Alonzo}}{16/02/2022}{\actionNouvelle}
+\end{actionlist}
+
+
+\section{Prochaine réunion}
+
+La prochaine réunion est planifiée au lundi 21 mars à 16h00 sur Discord. S'il est possible que Adélaïde \bsc{Calais} soit présente, l'équipe de développement lui présentera ses travaux.
+
+\end{document}

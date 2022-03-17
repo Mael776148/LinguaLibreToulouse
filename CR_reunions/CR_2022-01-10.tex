@@ -1,0 +1,68 @@
+%
+%   Copyright © 2022 Maël Alet
+%
+%   Cette œuvre est mise à disposition sous licence CC BY-SA 4.0. Pour voir une copie de 
+%   cette licence, visitez http://creativecommons.org/licenses/by-sa/4.0/ ou écrivez à
+%   Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+%
+\documentclass{article}
+
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Les deux déclarations suivantes sont nécessaires pour que le format des citations correspondent au format
+% Français "standard". Elles ne sont pas strictement nécessaires mais autant faire les choses bien.
+\AddThinSpaceBeforeFootnotes
+\FrenchFootnotes
+
+
+\usepackage{multirow}
+\usepackage{cpylicence}
+\usepackage{crreunion}
+
+
+\numero{5}
+\date{10 janvier 2022}
+\heure{9:30}
+\lieu{Discord}
+\objet{}
+
+
+\begin{document}
+
+\begin{crtitlepage}
+
+\makecrtitle
+
+\begin{redacteurs}
+        \multirow{2}{*}{Maël \bsc{Alet}} & \multirow{2}{*}{13/03/2022} & Julien \bsc{Alonzo} & \multirow{2}{*}{13/03/2022} \\
+        & & Tariq \bsc{Dahbi} & 
+\end{redacteurs}
+
+
+\makecrinfo
+
+
+\begin{participants}
+    Maël \bsc{Alet} & \multirow{4}{*}{Développeur} \\
+    Julien \bsc{Alonzo} & \\
+    Tariq \bsc{Dahbi} & \\
+    Quentin \bsc{Saint-Guily} & \\ \hline
+    Cédric \bsc{Tarbouriech} & Client
+\end{participants}
+
+
+\begin{license}
+    \copyrightnotice{2022}{Maël}{Alet}
+\end{license}
+    
+\end{crtitlepage}
+
+\newpage
+
+\section{Compte rendu perdu}
+
+Le compte rendu de cette réunion a été perdu ou n'a pas été fait.
+
+\end{document}

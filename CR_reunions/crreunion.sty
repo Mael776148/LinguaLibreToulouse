@@ -1,0 +1,108 @@
+%
+%   Copyright © 2022 Maël Alet
+%
+%   Cette œuvre est mise à disposition sous licence CC BY-SA 4.0. Pour voir une copie de 
+%   cette licence, visitez http://creativecommons.org/licenses/by-sa/4.0/ ou écrivez à
+%   Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+%
+
+\usepackage{tabularx}
+
+% Commande pour afficher "M. Dupont"
+\newcommand{\Monsieur}[1]{M. \bsc{#1}}
+
+% Commande pour typeset les en-têtes des tables.
+\newcommand{\tabh}[1]{\textbf{#1}}
+
+
+% Commandes pour faire les tableaux d'actions à faire/faîtes.
+\newenvironment{actionlist}
+{
+    \begin{tabular}{|c|c|c|c|}
+        \hline \tabh{Action} & \tabh{Responsable} & \tabh{Échéance} & \tabh{État} \\ \hline
+}
+{
+    \end{tabular}
+}
+
+% Arguments: \action{action}{responsable}{échéance}{état}
+% Utiliser les commandes \actionNouvelle, \acttionTerminee, etc... pour l'état 
+\newcommand{\action}[4]{#1 & #2 & #3 & #4 \\ \hline}
+
+%Liste des états possible pour les actions
+\newcommand{\actionNouvelle}{Nouvelle}
+\newcommand{\actionTerminee}{Terminée}
+\newcommand{\actionEncours}{En cours}
+
+
+% Commandes pour déclarer les différentes infos de la réunion.
+\newcommand{\numero}[1]{\newcommand{\@numero}{#1}}
+\newcommand{\lieu}[1]{\newcommand{\@lieu}{#1}}
+\newcommand{\objet}[1]{\newcommand{\@objet}{#1}}
+\newcommand{\heure}[1]{\newcommand{\@heure}{#1}}
+
+% Affiche l'ordre du jour sous forme de table des matières
+\newcommand{\ordredujour}{
+    \renewcommand{\contentsname}{Ordre du jour}
+    \tableofcontents
+}
+
+% Affiche le titre du document (\maketitle like)
+\newcommand{\makecrtitle}{
+    \begin{center}
+        \LARGE Compte Rendu Réunion \@numero
+    \end{center}
+    
+    \vspace{2em}
+}
+
+% Affiche les informations de la réunion
+\newcommand{\makecrinfo}{
+    \vspace{5em}
+    
+    \noindent
+    \textbf{Date de la réunion}: \@date
+    
+    \vspace{1em}
+    \noindent
+    \textbf{Heure}: \@heure
+    
+    \vspace{1em}
+    \noindent
+    \textbf{Lieu de réunion}: \@lieu
+    
+    \vspace{1em}
+    \noindent
+    \textbf{Objet de la réunion}: \@objet
+
+    \vspace{4em}
+}
+
+% Environnement pour la page de garde
+\newenvironment{crtitlepage}{\large}{}
+
+% Environnement pour le tableau de l'en-tête des informations de rédaction
+\newenvironment{redacteurs}
+{
+    \begin{center}
+        \begin{tabular}{cccc}
+            \hline \tabh{Rédacteurs} & \tabh{Date rédaction} & \tabh{Validé par}
+                                                    & \tabh{Date relecture} \\
+            \hline
+}
+{
+            \\ \hline
+        \end{tabular}
+    \end{center}
+}
+
+% Environnement pour le tableau des participants
+\newenvironment{participants}
+{
+    \raggedright % equivalent to flushleft environment
+    \tabularx{\linewidth}{lX}
+        \tabh{Participant} & \tabh{Rôle} \\ \hline
+}
+{
+    \endtabularx
+}

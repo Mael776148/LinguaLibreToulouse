@@ -1,0 +1,165 @@
+%
+%   Copyright © 2022 Maël Alet
+%   Copyright © 2022 Julien Alonzo
+%
+%   Cette œuvre est mise à disposition sous licence CC BY-SA 4.0. Pour voir une copie de 
+%   cette licence, visitez http://creativecommons.org/licenses/by-sa/4.0/ ou écrivez à
+%   Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+%
+\documentclass{article}
+
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Les deux déclarations suivantes sont nécessaires pour que le format des citations correspondent au format
+% Français "standard". Elles ne sont pas strictement nécessaires mais autant faire les choses bien.
+\AddThinSpaceBeforeFootnotes
+\FrenchFootnotes
+
+
+\usepackage{multirow}
+\usepackage{cpylicence}
+\usepackage{crreunion}
+
+
+\numero{6}
+\date{23 février 2022}
+\heure{16:00}
+\lieu{Discord}
+\objet{Présentation des résultats obtenus et décision quant à la suite du projet}
+
+
+\begin{document}
+
+\begin{crtitlepage}
+
+\makecrtitle
+
+\begin{redacteurs}
+        Julien \bsc{Alonzo} & \multirow{2}{*}{23/02/2022} & \multirow{2}{*}{Tariq \bsc{Dahbi}} & \multirow{2}{*}{23/02/2022} \\
+        Maël \bsc{Alet} & & & 
+\end{redacteurs}
+
+
+\makecrinfo
+
+
+\begin{participants}
+    Maël \bsc{Alet} & \multirow{3}{*}{Développeur} \\
+    Julien \bsc{Alonzo} & \\
+    Tariq \bsc{Dahbi} & \\ \hline
+    Cédric \bsc{Tarbouriech} & Client\\ \hline
+    \og Yug \fg &  Membre de la communauté Lingua Libre
+\end{participants}
+
+
+\begin{license}
+    \copyrightnotice{2022}{Maël}{Alet}
+    
+    \copyrightnotice{2022}{Julien}{Alonzo}
+\end{license}
+
+\end{crtitlepage}
+
+
+
+\newpage
+
+\ordredujour
+
+\newpage
+
+\section{Départ d'un développeur}
+
+Le client est informé par l'équipe de développement du départ de Quentin \bsc{Saint-Guily}.
+
+\subsection{Discussion}
+
+L'équipe de développement signale le manque de transparence de Quentin et des problèmes de rétention d'information liés.
+
+Les notions \og d'expert \fg\ et de \og bus factor \fg\ sont discutées avec les clients.
+
+
+\section{Suite du projet}
+
+L'équipe de développement signale qu'elle n'aura pas le temps de faire les deux parties du projet.
+
+La question est posée de savoir si l'équipe de développement doit continuer la partie sur la détection des bruits ou abandonner cette partie et passer à la partie détection des mots prononcés.
+
+\subsection{Discussion}
+
+Le client n'a pas de préférences sur la partie du projet à privilégier. Yug et l'équipe de développement sont d'accords sur le fait que changer de partie prendrait du temps et casserait la dynamique.
+
+\subsection{Décisions}
+
+La décision est prise d'abandonner la partie vérification des mots prononcés pour se concentrer sur la détection des bruits.
+
+
+\section{Abandon de la méthode de séparation de sources}
+
+L'équipe de développement signale son intention d'abandonner la détection de bruits à l'aide de la méthode de séparation de sources via Asteroid.
+
+\subsection{Discussion}
+
+L'équipe de développement note que la personne en charge de cette méthode était Quentin. Elle signale qu'en réalité Asteroid ne permet pas de faire ce qu'elle pensait et n'est donc pas utilisable pour la détection de bruits. Elle signale également que la méthode donne de toute manière de très mauvais résultats.
+
+Les clients acceptent cette décision mais signalent qu'elle doit être consignée dans un compte rendu avec les raisons de cette décision, si possible avec des résultats quantitatifs comme une matrice de confusion.
+
+L'équipe de développement s'engage à écrire un compte rendu. Elle note cependant que la réalisation d'une matrice de confusion pourrait faire perdre du temps sans apporter d'informations utiles, en rappelant qu'Asteroid n'est pas fait pour détecter des bruits parasites.
+
+Les clients et les développeurs s'accordent à dire que faire un benchmark approfondi (ex: matrice de confusion) d'Asteroid est probablement une perte de temps. Néanmoins, il sera peut être réalisé si le temps le permet.
+
+\subsection{Actions}
+
+\begin{actionlist}
+    \action{Écrire CR abandon Asteroid}{Julien \bsc{Alonzo}}{07/02/2022}{\actionNouvelle}
+\end{actionlist}
+
+
+\section{Absence de méthodes fonctionnelles}
+
+L'équipe de développement signale qu'elle ne possède aucune méthode fonctionnelle de détection des bruits et peu de pistes pour en trouver une.
+
+\subsection{Discussion}
+
+Les clients rappellent que certains professeurs des développeurs pourraient les aider et suggèrent de contacter \Monsieur{Pelligrini} et \Monsieur{Kouamé}.
+
+L'équipe de développement note que Quentin et Clément avaient déjà contacté \Monsieur{Kouamé} mais sans mettre le reste de l'équipe en copie.
+
+Les clients suggèrent de le contacter à nouveau en expliquant le départ de Quentin et Clément.
+
+L'équipe de développement s'engage à les contacter.
+
+Yug pose la question de la possibilité que l'équipe de développement entraîne elle-même un réseau de neurones. Cédric \bsc{Tarbouriech} et les développeurs s'accordent à dire que cela serait trop complexe.
+
+\subsection{Actions}
+
+\begin{actionlist}
+    \action{Contacter \Monsieur{Pelligrini}}
+                        {Julien \bsc{Alonzo}}{07/02/2022}{\actionNouvelle}
+\end{actionlist}
+
+
+\section{Mise à disposition des livrables et documents}
+
+\subsection{Discussion}
+
+Yug suggère de créer un dépôt Git pour déposer tous les documents (dont les comptes rendus) et propose son aide pour le faire. Il demande également de mettre les documents à disposition sous licence libre (CC-BY-SA par exemple) pour permettre leur réutilisation par la communauté Wikimédia.
+
+L'équipe de développement accepte la proposition de créer un Git et de mettre les documents sous licence CC-BY-SA.
+
+\subsection{Actions}
+
+\begin{actionlist}
+    \action{Créer un dépot Git}{Maël \bsc{Alet}}{07/02/2022}{\actionNouvelle}
+    \action{Publier sous licence libre}{Maël \bsc{Alet}}{07/02/2022}{\actionNouvelle}
+\end{actionlist}
+
+
+\section{Prochaine réunion}
+
+La prochaine réunion est planifiée au lundi 7 mars à 16h00 sur Discord. L'ordre du jour sera l'avancement des actions décidées aujourd'hui.
+
+
+\end{document}

@@ -1,0 +1,94 @@
+%
+%   Copyright © 2022 Maël Alet
+%
+%   Cette œuvre est mise à disposition sous licence CC BY-SA 4.0. Pour voir une copie de 
+%   cette licence, visitez http://creativecommons.org/licenses/by-sa/4.0/ ou écrivez à
+%   Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+%
+\documentclass{article}
+
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Les deux déclarations suivantes sont nécessaires pour que le format des citations correspondent au format
+% Français "standard". Elles ne sont pas strictement nécessaires mais autant faire les choses bien.
+\AddThinSpaceBeforeFootnotes
+\FrenchFootnotes
+
+
+\usepackage{multirow}
+\usepackage{crreunion}
+\usepackage{cpylicence}
+
+
+\numero{7}
+\date{7 mars 2022}
+\heure{16:00}
+\lieu{Discord}
+\objet{Avancement des actions décidées à la dernière réunion}
+
+
+\begin{document}
+
+\begin{crtitlepage}
+
+\makecrtitle
+
+\begin{redacteurs}
+        \multirow{2}{*}{Maël \bsc{Alet}} & \multirow{2}{*}{07/03/2022} & Julien \bsc{Alonzo} & \multirow{2}{*}{07/03/2022} \\
+        & & Tariq \bsc{Dahbi} & 
+\end{redacteurs}
+
+
+\makecrinfo
+
+
+\begin{participants}
+    Maël \bsc{Alet} & \multirow{3}{*}{Développeur} \\
+    Julien \bsc{Alonzo} & \\
+    Tariq \bsc{Dahbi} & \\ \hline
+    Cédric \bsc{Tarbouriech} & Client
+\end{participants}
+
+
+\begin{license}
+    \copyrightnotice{2022}{Maël}{Alet}
+\end{license}
+    
+\end{crtitlepage}
+
+\newpage
+
+\ordredujour
+
+\newpage
+
+\section{Avancement}
+
+L'équipe des développeurs signale son manque d'avancement significatif et l'absence de nouveaux sujets de discussion.
+
+\subsection{États des actions}
+
+\begin{actionlist}
+    \action{Écrire CR abandon Asteroid}{Julien \bsc{Alonzo}}{14/02/2022}{\actionEncours}
+    
+    \action{Contacter \Monsieur{Pelligrini}}
+                        {Julien \bsc{Alonzo}}{14/02/2022}{\actionEncours}
+                        
+    \action{Créer un dépot Git}{Maël \bsc{Alet}}{14/02/2022}{\actionEncours}
+    
+    \action{Publier sous licence libre}{Maël \bsc{Alet}}{14/02/2022}{\actionEncours}
+\end{actionlist}
+
+\subsection{Décisions}
+
+La décision est prise à l'unanimité d'ajourner la réunion.
+
+
+\section{Prochaine réunion}
+
+La prochaine réunion est planifiée au lundi 14 mars à 16h00 sur Discord. L'ordre du jour sera à nouveau l'avancement des actions décidées à la dernière réunion.
+
+
+\end{document}
