@@ -1,0 +1,74 @@
+%
+%   Copyright © 2022 Julien Alonzo
+%
+%   Cette œuvre est mise à disposition sous licence CC BY-SA 4.0. Pour voir une copie de 
+%   cette licence, visitez http://creativecommons.org/licenses/by-sa/4.0/ ou écrivez à
+%   Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+%
+\documentclass{article}
+
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Les deux déclarations suivantes sont nécessaires pour que le format des citations correspondent au format
+% Français "standard". Elles ne sont pas strictement nécessaires mais autant faire les choses bien.
+\AddThinSpaceBeforeFootnotes
+\FrenchFootnotes
+
+\usepackage{cpylicence}
+\usepackage{amssymb}
+
+
+\title{Séparation de sources avec Asteroid}
+\author{Julien \bsc{Alonzo}}
+\date{Mars 2022}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\begin{license}
+    \copyrightnotice{2022}{Julien}{Alonzo}
+\end{license}
+
+\newpage
+
+\section{Contexte}
+
+L'objectif de ce document est de présenter plus en profondeur l'utilisation de la méthode Asteroid dans le but de détecter la présence de bruits parasites dans un enregistrement audio.
+
+Comme nous l'avons présenté dans le compte rendu bilan de nos recherches sur la détection de bruits parasites dans les enregistrements audio, nous avons choisi d'implémenter la méthode utilisant la boîte à outils Asteroid. Cette boîte à outils offre une multitude de réseaux de neurones pré-entraînés à la séparation de plusieurs voix présentes dans un enregistrement audio.
+
+Pour ce faire, l'utilisateur donne en entrée un enregistrement audio contenant plusieurs voix, et le réseau nous renvoie plusieurs signaux en sortie, chacun contenant chaque voix séparées des autres.
+
+\section{La méthode Asteroid}
+
+\subsection{Critiques}
+Nous allons maintenant présenter les forces ainsi que les faiblesses d'Asteroid dans la détection de bruits parasites.
+
+Tout d'abord, par manque de temps et de compétences dans le domaine du traitement audio et des réseaux de neurones, il nous était impossible de concevoir notre propre réseau de neurones. C'est une des raisons pour laquelle nous avons choisi d'utiliser Asteroid puisqu'il nous donne accès à de nombreux réseaux de neurones pré-entraînés. Nous pouvons donc directement utiliser chacun des réseaux de neurones sans avoir à modifier quoi que ce soit. 
+
+De plus, dans notre cas les enregistrements audio que nous devons traiter sont de durées très courtes (2 ou 3 secondes en moyenne). De ce fait, le temps de calcul pour chacun de ces fichiers est très rapide, et le traitement de chaque fichier se fait donc rapidement.
+ 
+Cependant, à l'origine Asteroid a été créé afin de séparer plusieurs voix présentes dans un enregistrement audio. Il nous fallait donc tester Asteroid sur des enregistrements audio contenant qu'une seule voix et contenant parfois des bruits parasites. Dans l'idéal, nous espérions qu'Asteroid nous renvoie en sortie deux fichiers audio, un contenant seulement la voix, et le second contenant seulement l'éventuel bruit.
+
+\subsection{Résultats}
+
+Afin d'utiliser les réseaux de neurones qu'Asteroid nous offre, nous avons à notre disposition, sur le dépot GitHub d'Asteroid, un tutoriel détaillé nous permettant de comprendre le fonctionnement d'Asteroid et ainsi nous avons pu comprendre comment utiliser chacun des réseaux de neurones. Ainsi, nous avons alors pu tester les différents réseaux de neurones avec nos enregistrements de tests.
+
+En partant d'une base de test de 15 enregistrements, nous obtenons les résultats en une trentaine de secondes, soit environ deux secondes par enregistrement audio, le traitement est donc rapide comme nous l'avions prévu.
+Cependant, malgré de nombreuses recherches et de nombreux tests avec les différents réseaux de neurones à notre disposition, aucuns de nos résultats ne sont satisfaisants. Plusieurs raisons expliquent ces résultats.
+
+Premièrement, afin d'utiliser chacun des réseaux de neurones, il fallait utiliser des fichiers audio de fréquence d'échantillonnage inférieure à la fréquence d'échantillonnage de nos enregistrements audio. De ce fait, Asteroid va automatiquement ré-échantillonner nos enregistrements afin qu'ils puissent être compatibles avec les réseaux de neurones. De ce fait, nos enregistrements ce sont alors retrouvés \og dégradés\fg\ par ce ré-échantillonnage, et le traitement des fichiers traités par Asteroid était alors complexe. 
+
+De plus, comme nous le craignions, Asteroid n'ayant pas pour but de séparer le bruit de la voix dans un enregistrement audio, les fichiers que nous renvoie Asteroid ne sont pas du tout comme on l'espérait. En effet, nous espérions avoir en retour un fichier contenant la voix et un deuxième fichier contenant seulement le bruit, s'il y en avait. Cependant, après le traitement des enregistrements tests, Asteroid nous renvoie bien deux fichiers, mais ces fichiers sont intraitables puisque nous n'avons pas le même résultat pour chacun de nos enregistrements. Selon l'enregistrement testé, les résultats sont plus ou moins aléatoires. Dans certains cas les deux fichiers que nous obtenons sont quasi-identiques à l'enregistrement d'origine ou alors ils sont complètement modifiés et Asteroid nous renvoie seulement une partie de l'enregistrement d'origine dans chacun des fichiers, mais en aucun cas nous avons un des fichiers audio qui pourrait correspondre au bruit seulement. De plus, dans tous les cas, les fichiers obtenus sont tous plus ou moins saturés, ce qui rend alors les fichiers intraitables.
+
+\section{Conclusion}
+
+Malgré quelques réticences au sein du groupe, nous avons décidé d'utiliser Asteroid afin de séparer le bruit de la voix dans un enregistrement audio. Même si ce n'est pas le but d'Asteroid, nous pensions tout de même pouvoir utiliser Asteroid afin d'isoler le bruit et donc de conclure sur la présence de bruit ou non sur le fichier audio d'origine.
+
+Cependant, après de nombreux tests sur les différents réseaux de neurones qu'Asteroid nous offre, nous n'avons pas réussi à conclure sur la présence de bruit dans un fichier audio puisque chacun des réseaux de neurones nous renvoie des fichiers intraitables. Nous pouvons donc conclure qu'Asteroid ne fonctionne pas lorsqu'il s'agit d'isoler du bruit dans un enregistrement audio. 
+
+\end{document}
