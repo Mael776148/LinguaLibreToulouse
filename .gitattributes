@@ -1,0 +1,7 @@
+*	text=auto
+*.sty	text
+*.tex	text
+.gitignore	text
+.gitattributes	text
+/README	text
+/LICENSE	text
